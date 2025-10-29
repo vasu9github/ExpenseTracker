@@ -11,7 +11,7 @@ const Header = () => {
 
           <div className="flex-shrink-0 flex items-center">
             <h1 className="text-2xl font-bold text-indigo-600">
-              SidLabs Tracker
+              Expense Tracker
             </h1>
           </div>
           <div className="flex items-center">
