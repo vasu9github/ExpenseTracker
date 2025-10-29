@@ -29,7 +29,7 @@ const Summary = () => {
           Total Expenses
         </h3>
         <p className="text-3xl font-bold text-gray-900">
-          ${total.toFixed(2)}
+          Rs:{total.toFixed(2)}
         </p>
       </div>
 
