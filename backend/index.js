@@ -9,7 +9,8 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors('http://localhost:5173'));
+const frontendUrl = 'https://expense-tracker-three-fawn-15.vercel.app'
+app.use(cors(frontendUrl,'http://localhost:5173'));
 app.use(express.json());
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/auth',authRoutes)
