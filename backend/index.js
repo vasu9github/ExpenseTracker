@@ -9,7 +9,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+app.use(cors('http://localhost:5173'));
 app.use(express.json());
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/auth',authRoutes)
