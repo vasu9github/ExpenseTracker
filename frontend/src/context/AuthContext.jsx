@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', token);
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-      toast.success('Login successful! Welcome.');
+      toast.success('Login successful! Welcome. please reload the page now.');
       navigate('/');
       return true;
     } catch (err) {
