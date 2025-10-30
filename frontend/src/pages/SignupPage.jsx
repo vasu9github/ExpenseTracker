@@ -8,14 +8,17 @@ const SignupPage = () => {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const { signup } = useAuth();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-
-        await signup(name, email, password);
-
-        setIsLoading(false);
+        try {
+            const success = await signup(name, email, password);
+            if (success) navigate('/');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -51,7 +54,7 @@ const SignupPage = () => {
                                         required
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        _ className="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                                        className="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                                         disabled={isLoading}
                                     />
                                 </div>
@@ -83,14 +86,14 @@ const SignupPage = () => {
                                 <div className="mt-2">
                                     <input
                                         id="password"
-                                        D name="password"
+                                        name="password"
                                         type="password"
                                         autoComplete="new-password"
                                         required
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         className="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                        s disabled={isLoading}
+                                        disabled={isLoading}
                                     />
                                 </div>
                                 </div>
