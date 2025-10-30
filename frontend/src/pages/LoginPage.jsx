@@ -13,15 +13,8 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    try {
-      const success = await login(email, password);
-      if (success) {
-        navigate('/');
-      }
-    } catch (err) {
-    } finally {
-      setIsLoading(false);
-    }
+    await login(email, password, navigate);
+    setIsLoading(false);
   };
 
   return (
